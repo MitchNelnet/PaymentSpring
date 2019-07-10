@@ -1,0 +1,330 @@
+<?php
+
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'avada-stylesheet' ) );
+	wp_enqueue_style( 'child-style2', get_stylesheet_directory_uri() . '/style-uniform.css', array( 'avada-stylesheet' ) );
+
+	//Added by Matia - Firespring
+	wp_register_script( 'custom_js', get_stylesheet_directory_uri() . '/js/custom_js.js', array( 'jquery' ) );
+  	wp_enqueue_script( 'custom_js' );
+}
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
+function custom_admin_script() {
+    wp_enqueue_script('custom_js', get_stylesheet_directory_uri() . '/js/admin_custom_js.js', array('jquery'), true);
+}
+add_action('admin_enqueue_scripts', 'custom_admin_script');
+
+function avada_lang_setup() {
+	$lang = get_stylesheet_directory() . '/languages';
+	load_child_theme_textdomain( 'Avada', $lang );
+}
+add_action( 'after_setup_theme', 'avada_lang_setup' );
+
+/* Add GTM code provided by Sierra F*/
+function my_custom_head_function_for_avada() {
+    global $post;
+?>
+ 
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6W5CHJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+ 
+<?php
+    if ($post->ID == 6 || $post->ID == 52 || $post->ID == 8348) { //homepage, dev docs, partner program
+        $output = '<!-- Tag for Activity Group: IP1816638, Activity Name: Retargeting~IP1816638, Activity ID: 6918166 -->
+        <!-- Expected URL: https://paymentspring.com/partner-program -->
+
+        <!--
+        Activity ID: 6918166
+        Activity Name: Retargeting~IP1816638
+        Activity Group Name: IP1816638
+        -->
+
+        <!--
+        Start of DoubleClick Floodlight Tag: Please do not remove
+        Activity name of this tag: Retargeting~IP1816638
+        URL of the webpage where the tag is expected to be placed: https://paymentspring.com/partner-program
+        This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+        Creation Date: 12/29/2017
+        -->
+        <script type="text/javascript">
+        var axel = Math.random() + "";
+        var a = axel * 10000000000000;
+        document.write(\'<iframe src="https://8315976.fls.doubleclick.net/activityi;src=8315976;type=ip1810;cat=retar0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=\' + a + \'?" width="1" height="1" frameborder="0" style="display:none"></iframe>\');
+        </script>
+        <noscript>
+        <iframe src="https://8315976.fls.doubleclick.net/activityi;src=8315976;type=ip1810;cat=retar0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+        </noscript>
+        <!-- End of DoubleClick Floodlight Tag: Please do not remove -->';
+
+        echo $output;
+    }
+}
+add_filter( 'avada_before_body_content', 'my_custom_head_function_for_avada' );
+
+
+
+function SearchFilter($query) {
+    if ($query->is_search) {
+        $query->set('post__not_in', array(1874,1887,8261,8112,5803)); //e-invoice: 8261, checkout-button: 8112		
+    }
+    return $query;
+}
+
+add_filter('pre_get_posts','SearchFilter'); 
+
+function admin_css_signup_plugin() {
+  echo '<style>
+
+    table.track_signup_table {
+        border-collapse: collapse;
+    }
+
+    table.track_signup_table th:first-of-type {
+        width: 130px;
+    } 
+
+    table.track_signup_table th {
+        width: 300px;
+    } 
+
+    table.track_signup_table tr:nth-child(even) {
+        background-color: #eeeeee;
+    }
+
+    table.track_signup_table tr:nth-child(2n+3) {
+        background-color: #ffffff;
+    }
+
+    table.track_signup_table td {
+        border: 1px solid #ccc;
+        padding: 7px;
+    }
+
+  </style>';
+}
+add_action('admin_head', 'admin_css_signup_plugin');
+
+/* Add a color metaboxes to Admin pages for the Generic Partnet Template */
+function custom_main_meta_box_markup()
+{
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+    ?>
+        <div>
+            <label for="meta-box-main-color">Main Color</label>
+            <input name="meta-box-main-color" type="text" value="<?php echo get_post_meta(get_the_ID(), "meta-box-main-color", true); ?>">
+        </div>
+    <?php
+}
+
+function custom_accent_meta_box_markup()
+{
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+    ?>
+        <div>
+            <label for="meta-box-accent-color">Accent Color</label>
+            <input name="meta-box-accent-color" type="text" value="<?php echo get_post_meta(get_the_ID(), "meta-box-accent-color", true); ?>">
+        </div>
+    <?php
+}
+
+function custom_watermark_meta_box_markup()
+{
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+    ?>
+        <div>
+            <label for="meta-box-watermark">Show PaymentSpring Watermark in masthead?</label>
+            <?php 
+            $field_id_value = get_post_meta(get_the_ID(), 'meta-box-watermark', true);
+            if($field_id_value == "yes") {
+                $field_id_checked = 'checked="checked"'; 
+            }?>
+            <input name="meta-box-watermark" type="checkbox" value="yes" <?php echo $field_id_checked; ?>>
+        </div>
+    <?php
+}
+
+function add_color_meta_box()
+{
+    add_meta_box("main-color-meta-box", "Main Color", "custom_main_meta_box_markup", "page", "side", "low", null);
+    add_meta_box("accent-color-meta-box", "Accent Color", "custom_accent_meta_box_markup", "page", "side", "low", null);
+    add_meta_box("watermark-meta-box", "Checkbox", "custom_watermark_meta_box_markup", "page", "side", "low", null);
+}
+
+add_action("add_meta_boxes", "add_color_meta_box");
+
+function save_custom_meta_box($post_id, $post, $update)
+{
+    if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__))) {
+        return $post_id;
+    }
+
+    if(!current_user_can("edit_post", $post_id)) {
+        return $post_id;
+    }
+
+    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return $post_id;
+    }
+
+    $slug = "page";
+    if($slug != $post->post_type) {
+        return $post_id;
+    }
+    
+    $meta_box_text_value = "";
+
+    if(isset($_POST["meta-box-accent-color"]))
+    {
+        echo $_POST["meta-box-accent-color"];
+        $meta_box_text_value = $_POST["meta-box-accent-color"];
+    } 
+    update_post_meta($post_id, "meta-box-accent-color", $meta_box_text_value);
+
+    if(isset($_POST["meta-box-main-color"]))
+    {
+        echo $_POST["meta-box-main-color"];
+        $meta_box_text_value = $_POST["meta-box-main-color"];
+    } 
+    update_post_meta($post_id, "meta-box-main-color", $meta_box_text_value);
+
+    if(isset($_POST["meta-box-watermark"]))
+    {
+        echo $_POST["meta-box-watermark"];
+        $meta_box_text_value = $_POST["meta-box-watermark"];
+    } 
+    update_post_meta($post_id, "meta-box-watermark", $meta_box_text_value);
+}
+
+add_action("save_post", "save_custom_meta_box", 10, 3);
+/* End color meta box */
+
+/* Add Read Time meta box to posts */
+function custom_read_time_meta_box_markup() {
+    wp_nonce_field(basename(__FILE__), "meta-box-nonce");
+    ?>
+        <div>
+            <label for="meta-box-read-time">Read Time</label>
+            <input name="meta-box-read-time" type="text" value="<?php echo get_post_meta(get_the_ID(), "meta-box-read-time", true); ?>">
+        </div>
+    <?php
+}
+
+function add_read_time_meta_box()
+{
+    add_meta_box("read-time-meta-box", "Read Time", "custom_read_time_meta_box_markup", "post", "side", "low", null);
+}
+
+add_action("add_meta_boxes", "add_read_time_meta_box");
+
+function save_read_time_meta_box($post_id, $post, $update) {
+    if (!isset($_POST["meta-box-nonce"]) || !wp_verify_nonce($_POST["meta-box-nonce"], basename(__FILE__))) {
+        return $post_id;
+    }
+
+    if(!current_user_can("edit_post", $post_id)) {
+        return $post_id;
+    }
+
+    if(defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return $post_id;
+    }
+
+    $slug = "post";
+    if($slug != $post->post_type) {
+        return $post_id;
+    }
+    
+    $meta_box_text_value = "";
+
+    if(isset($_POST["meta-box-read-time"]))
+    {
+        echo $_POST["meta-box-read-time"];
+        $meta_box_text_value = $_POST["meta-box-read-time"];
+    } 
+    update_post_meta($post_id, "meta-box-read-time", $meta_box_text_value);
+}
+add_action("save_post", "save_read_time_meta_box", 10, 3);
+
+/* End Read Time meta box */
+
+function add_blog_meta() {
+    $categories = get_the_category();
+    $separator = ', ';
+    $output = '';
+    $output .= "<div class='fusion-meta-info'>";
+
+    if ( ! empty( $categories ) ) {
+        $output .= "Categories: ";
+        foreach( $categories as $category ) {
+            if ($category->name != "Blog") {
+                $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+            }
+        }
+        $output = substr($output, 0, strlen($output) - 2);
+    }
+
+    $posttags = get_the_tags();
+    if ($posttags) {
+        if ( ! empty( $categories ) ) {
+            $output .= " | ";
+        }
+        $output .= "Tags: ";
+      foreach($posttags as $tag) {
+        //$output .= $tag->name . ' '; 
+        $output .= '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $tag->name ) ) . '">' . esc_html( $tag->name ) . '</a>' . $separator;
+      }
+      $output = substr($output, 0, strlen($output) - 2);
+    }
+    $output .= "</div>";
+    echo trim( $output, $separator );
+}
+
+function add_blog_read_time_meta() {
+    $output = '<div class="post-read-time">';
+    if (strlen(get_post_meta( get_the_ID(), 'meta-box-read-time', true )) > 0) {
+        $output .= get_post_meta( get_the_ID(), 'meta-box-read-time', true );
+    }
+    $output .= "</div>";
+    echo $output;
+}
+
+add_action('fusion_blog_shortcode_loop_content','add_blog_read_time_meta', 10);
+
+function add_pixel_gf_18_19() {
+    //output this JS on GF 18 submission
+    $output = 
+    '<!-- Tag for Activity Group: IP1816638, Activity Name: Learn More Button~IP1816638, Activity ID: 6918160 -->
+    <!-- Expected URL: https://paymentspring.com/partner-program -->
+
+    <!--
+    Activity ID: 6918160
+    Activity Name: Learn More Button~IP1816638
+    Activity Group Name: IP1816638
+    -->
+
+    <!--
+    Start of DoubleClick Floodlight Tag: Please do not remove
+    Activity name of this tag: Learn More Button~IP1816638
+    URL of the webpage where the tag is expected to be placed: https://paymentspring.com/partner-program
+    This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+    Creation Date: 12/29/2017
+    -->
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write(\'<iframe src="https://8315976.fls.doubleclick.net/activityi;src=8315976;type=ip1810;cat=learn0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=\' + a + \'?" width="1" height="1" frameborder="0" style="display:none"></iframe>\');
+    console.log("hello");
+
+    </script>
+    <noscript>
+    <iframe src="https://8315976.fls.doubleclick.net/activityi;src=8315976;type=ip1810;cat=learn0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    <!-- End of DoubleClick Floodlight Tag: Please do not remove -->';
+    echo $output;
+
+}
+add_action( 'gform_after_submission_18', 'add_pixel_gf_18_19', 10, 2 );
+add_action( 'gform_after_submission_19', 'add_pixel_gf_18_19', 10, 2 );

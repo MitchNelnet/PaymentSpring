@@ -1,0 +1,476 @@
+/*
+Theme Name: Avada Child
+Description: Child theme for Avada theme. New CSS for uniform styling
+Author: ThemeFusion
+Author URI: https://theme-fusion.com
+Template: Avada
+Version: 1.0.0
+Text Domain:  Avada
+*/
+
+body .fusion_builder_column .fusion-column-wrapper a {
+    font-weight: bold;
+}
+
+.uniform .post-content p:last-of-type {
+    margin-bottom: 0px;
+}
+
+/* h1 will only exist in masthead of site. includes header and smaller text */
+.uniform .h2 {
+	font-size: 46px;
+	line-height: 46px;
+}
+
+.uniform .h3 {
+	font-size: 26px;
+	line-height: 26px;
+	padding-bottom: 20px;
+}
+
+.uniform .h3-next-to-icon{
+	font-size: 26px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.uniform .icon-header{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.uniform .h4 {
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.uniform .orange {
+	color: #f15d3f;
+}
+
+.uniform .blue {
+	color: #4ec0af;
+}
+
+.uniform .white {
+	color: #fff;
+}
+
+.uniform .black {
+	color: #010101;
+}
+
+.uniform .dark_gray1 {
+	color: #555;
+}
+
+.uniform .dark_gray2 {
+	color: #0a1514;
+}
+
+.uniform .font12 {
+	font-size: 12px;
+}
+
+.uniform .font14 {
+	font-size: 14px;
+}
+
+.uniform .font18 {
+	font-size: 18px;
+}
+
+.uniform .callout_body {
+	font-family: FFTisaWebProMedItalic !important;
+	color: #0a1514;
+	font-size: 18px;
+}
+
+.uniform .proxima-bold {
+	font-family: ProximaNovaA-Bold;
+}
+
+.uniform .proxima-semibold {
+	font-family: ProximaNovaA-Semibold;
+	font-weight: 700;
+}
+
+.tisa-font {
+    font-family: FFTisaWebProItalic !important;
+}
+
+.uniform .all-caps {
+	text-transform: uppercase;
+}
+
+.uniform .left-quotes {
+	position: absolute;
+	left: -8px;
+}
+
+/* Custom homepage header styles */
+.uniform .homepage-header-specialities .mast_headline {
+	font-size: 55px;
+	line-height: 55px;
+}
+
+.uniform .homepage-header-specialities .mast_tagline {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.uniform .homepage-header-specialities .fusion-button-text {
+	font-size: 20px;
+}
+
+.uniform .homepage-header-specialities .fusion-button {
+	min-width: 200px;
+}
+/* END custom homepage header styles */
+
+.accepted-payment-icons {
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+	-ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.two-col-border-left {
+	border-right: 1px solid #d7d7d7;
+	padding-right: 40px;
+}
+
+.two-col-border-right {
+	padding-left: 40px;
+}
+
+.teal-gradient-background {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4ec0af+0,4ec0af+39,004d57+100&1+0,1+40,0.4+100 */
+	background: -moz-linear-gradient(top, rgba(78,192,175,1) 0%, rgba(78,192,175,1) 39%, rgba(77,190,174,1) 40%, rgba(0,77,87,0.4) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(78,192,175,1) 0%,rgba(78,192,175,1) 39%,rgba(77,190,174,1) 40%,rgba(0,77,87,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(78,192,175,1) 0%,rgba(78,192,175,1) 39%,rgba(77,190,174,1) 40%,rgba(0,77,87,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4ec0af', endColorstr='#66004d57',GradientType=0 ); /* IE6-9 */
+}
+
+/* Buttons */
+/*.uniform .fusion-button.button-1 {
+	border-color: unset;
+}*/
+
+/*.uniform .fusion-button.button-no-border {
+	border-width: 0px;
+}*/
+
+.no-text-transform{
+	text-transform: none !important;
+}
+
+.uniform .fusion-text + div[class^='fusion-button-wrapper'] .fusion-button,
+.uniform .fusion-checklist + div[class^='fusion-button-wrapper'] .fusion-button {
+	margin-top: 30px;
+}
+
+#wrapper .uniform .button-round.button_no_border,
+#wrapper .uniform .fusion-button-round.button_no_border,
+.uniform .fusion-body .fusion-button-round.button_no_border {
+	border: 0px solid !important;
+}
+
+/*.uniform .fusion-button-wrapper + .fusion-button-wrapper .fusion-button {
+	margin-left: 20px;
+}*/
+
+.double-button-spacing {
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+a[class*=" button-"].white-outline-button.fusion-button:hover .fusion-button-text {
+	color: #4ec0af
+}
+
+/* END Buttons */
+
+/* Blog */
+body #main .blog-listing article .blog-shortcode-post-title a,
+.featured-blog-desc .h3 a {
+	color: #010101;	
+}
+
+body #main .blog-listing article .blog-shortcode-post-title a:hover,
+.featured-blog-desc .h3 a:hover {
+	color: #f15d3f;	
+}
+/* END Blog */
+
+/* Hopefully can delete by the end of restyling */
+.uniform .full-width-background:not(.overwrite-uniform-padding),
+.uniform.full-width-background:not(.overwrite-uniform-padding) {
+	padding-top: 40px !important;
+	padding-bottom: 40px !important;
+}
+
+
+.uniform .h3.single_line_title {
+	margin-top: 9px;
+	margin-bottom: 12px;
+}
+
+.uniform .h3.single_line_title img {
+	margin-top: -9px;
+}
+
+.uniform .h3.video_chat_icon {
+	margin-top: 9px;
+}
+
+.uniform .h3.video_chat_icon img {
+	margin-right: 10px;
+	margin-top: -9px;
+}
+.uniform .h3.check-circle_icon i {
+	padding-right: 10px;
+    font-size: 32px;
+	float: left;
+}
+
+.disclaimer {
+	font-size: 12px;
+    font-style: italic;
+    line-height: 14px;
+}
+
+/* Flat Header and Masthead */
+.uniform .slanted-header {
+	padding-bottom: 100px;
+}
+
+.logged-in .uniform .flat_header.slanted-header:before {
+	/*height: 427px;*/
+}
+
+.uniform .flat_header.slanted-header:before {
+	height: 400px;
+	top: 0px;
+	background-repeat: no-repeat;
+}
+
+.uniform .interior_header {
+	font-weight: 400;
+	text-align: center;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.uniform .mast_headline {
+	font-size: 48px;
+	color: #ffffff;
+	line-height: 48px;
+	letter-spacing: -1.5px;
+	font-family: ProximaNovaA-Regular !important;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 20px;
+}
+
+.uniform .mast_tagline {
+	font-size: 26px;
+	font-family: ProximaNovaA-Regular !important;
+  line-height: 28px !important;
+  letter-spacing: -.5px !important;
+  color: #FFFFFF !important;
+  /*text-shadow: 1px 1px #349689;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* END Flat Header */
+
+/* checklists */
+.uniform .checklist_with_icon i:before {
+	margin-right: -15px;
+	font-size: 18px;
+}
+
+.uniform .checklist_with_icon {
+	margin-left: 18px;
+}
+
+.uniform .checklist_with_icon li:last-of-type {
+	margin-bottom: 0px;
+}
+
+/* END checklists */
+
+/* Gravity Forms */
+
+.uniform .gform_wrapper {
+	margin-top: 0px;
+}
+
+.uniform form .gform_body label {
+	font-family: ProximaNovaA-Semibold;
+	color: #010101;
+}
+
+body .uniform form ul li.gfield {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.uniform form .gform_body .gfield_description {
+	font-family: ProximaNovaA-Light !important;
+	font-style: italic;
+	font-size: 14px;
+}
+
+.uniform form .gform_body .gfield_checkbox input {
+	margin-bottom: 0px !important;
+	height: inherit !important;
+}
+
+.uniform .gform_wrapper.gf_browser_chrome .gfield_checkbox li input, 
+.uniform .gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox] {
+	margin-top: 0px !important;
+}
+
+.uniform .gform_wrapper .top_label .gfield_label {
+	padding-top: 15px;
+}
+
+.uniform form .gform_body .gfield_checkbox label {
+	color: #555555;
+	font-size: 14px;
+	font-family: ProximaNovaA-Regular !important;
+	vertical-align: top;
+	padding-bottom: 13px;
+	line-height: 1;
+}
+
+.uniform form .gform_body input {
+	border-radius: 0px !important;
+}
+
+.uniform form .gfield_required {
+	color: #f15d3f;
+	margin-left: -1px;
+	font-size: 20px;
+}
+
+body .uniform form .top_label div.ginput_container {
+	margin-top: 0px;
+}
+
+.uniform form.form_2_col_no_left_padding .column-count-1-of-2 ul li.gfield {
+	padding-right: 0px;
+}
+
+.uniform form.form_2_col_no_left_padding .column-count-2-of-2 > div > ul {
+	padding-left: 25px;
+}
+
+.uniform .gform_wrapper .uniform_horizontal_form_fields ul li input,
+.uniform .gform_wrapper .uniform_horizontal_form_fields input[type=submit] {
+	height: 50px !important;
+}
+
+.gform_wrapper form.gf_simple_horizontal.uniform_horizontal_form_fields div.gform_footer.top_label {
+	vertical-align: top;
+}
+
+.uniform .gform_wrapper .top_label li.gfield.gf_left_half, 
+.uniform .gform_wrapper .top_label li.gfield.gf_right_half{
+	vertical-align: initial;
+}
+
+
+/* Affiliate Partners */
+#gform_19 {
+	padding-left: 22px;
+}
+
+/* END Gravity Forms */
+
+/* Modals */
+.modal-backdrop.in {
+	opacity: .9 !important;
+}
+
+.video-modal .modal-content {
+	box-shadow: 0 0 0;
+	border: 0px solid;
+}
+
+.video-modal button.close {
+	opacity: 1;
+	color: #f15d3f;
+}
+
+.video-modal .fusion-video {
+	max-width: 1280px !important;
+	max-height: 720px !important;
+}
+
+@media (min-width: 1400px) {
+	.video-modal .modal-lg {
+		width: 1300px !important;
+	}
+}
+
+@media (max-width: 800px) {
+	/* Hopefully can delete by the end of restyling */
+	.uniform .full-width-background:not(.overwrite-uniform-padding),
+	.uniform.full-width-background:not(.overwrite-uniform-padding) {
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+	}
+	
+	.uniform .masthead_content {
+		margin-bottom: 0px !important;
+	}
+
+	.uniform .slanted-header {
+		padding-bottom: 50px;
+	}
+
+	.uniform .mast_headline {
+		font-size: 38px;
+	}
+
+	.uniform .mast_tagline {
+		font-size: 20px;
+	}
+	
+	/* Custom homepage header styles */
+	.uniform .homepage-header-specialities .mast_headline {
+		font-size: 40px;
+		line-height: 40px;
+	}
+	/* END Custom homepage header styles */
+	
+	.two-col-border-left {
+		border-right: 0px solid #ffffff;
+		padding-right: 0px;
+	}
+
+	.two-col-border-right {
+		padding-left: 0px;
+	}
+	
+	.col-shift {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+	
+	/*.uniform .fusion-button-wrapper + .fusion-button-wrapper .fusion-button {
+		margin-left: 0px;
+		margin-top: 20px;
+	}*/
+}
+
+@media (max-width: 400px) {
+	.uniform .homepage-header-specialities .fusion-button {
+		min-width: 213px;
+	}
+}

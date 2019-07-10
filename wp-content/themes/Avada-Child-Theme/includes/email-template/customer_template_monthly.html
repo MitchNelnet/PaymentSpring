@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex, nofollow">
+    <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+
+    <title>PCI DSS Knowledge is Power</title>
+
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Montserrat);
+      body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+      table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}
+      img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;}
+      table{border-collapse: collapse !important;}
+      body{font-family: Arial, sans-serif; height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}
+      div[style*="margin: 16px 0;"] { margin:0 !important; }
+      a, a span, a:-webkit-any-link {
+        color: #49c3b1 !important;
+        font-weight: bold !important;
+        text-decoration: none !important;
+      }
+      strong {
+        color: #000000;
+      }
+      a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+      }
+
+      @media only screen and (max-width: 570px){
+        .twoColumns {
+            display:block !important;
+            width:100% !important;
+        }
+      }
+    </style>
+
+    <!--[if mso]>
+    <style type="text/css">
+      .body-text {
+      font-family: Arial, sans-serif !important;
+      }
+    </style>
+    <![endif]-->
+
+  </head>
+  <body style="margin:0; padding:0;">
+    <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#e2e2e2" >
+    <tr>
+      <td width="100%" valign="top" align="center" style="table-layout:fixed;">
+
+        <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+          When it comes to payment data security, we're here to help you walk the walk and talk the talk.
+        </div>
+
+
+        <center>
+          <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+            <tr bgcolor="#242222">
+              <td align="center" style="padding: 50px 0 15px 0px;">
+                <!--[if mso]>
+                 <table><tr><td width="600">
+                <![endif]-->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin: 0 auto; overflow:visible;">
+                  <tr>
+                    <td><a href="https://paymentspring.com" target="_blank"><img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/ps_white_logo.png" width="100%" height="100%" style="padding-left:5px; border:none; display:block; max-width: 219px; max-height: 43px;" border="0" alt="PaymentSpring Logo"></a></td>
+                    <td align="right"><h2 style="font-family: Arial, sans-serif; font-size:23px; line-height:23px; font-weight: 300; color:#ffffff; padding:0 8%; margin:0;" class="body-text">accept more</h2></td>
+                  </tr>
+                </table>
+                <!--[if mso]>
+                 </td></tr></table>
+                <![endif]-->
+              </td>
+
+            </tr>
+
+            <!-- START INTRO -->
+            <tr width="100%" style="table-layout:fixed;" align="center">
+              <td width="100%" style="table-layout:fixed; padding: 0px 10px;" bgcolor="#e2e2e2" align="center">
+                <!--[if mso]>
+                 <table><tr><td width="600">
+                <![endif]-->
+                <table cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 600px; margin: 0 auto; table-layout:fixed;" align="center">
+                  <tr>
+                    <td height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td height="100%" width="100%" valign="top" style="max-width: 600px; margin: 0 auto; overflow: visible; line-height: 0px; font-size: 0px;"><img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/nurture/22928_PS_NurtureEmail_asset_1.png" width="100%" height="auto" style="margin:0 auto; padding:0; border:none; display:block; max-width: 600px; max-height: 48px; line-height: 1px;" border="0" alt="Border"></td>
+                  </tr>
+                  <tr width="100%" style="table-layout:fixed; max-width: 600px; margin: 0 auto;" align="center" bgcolor="#ffffff">
+                    <td width="100%" style="table-layout:fixed; max-width: 600px; padding: 0 8%; margin: 0 auto;" align="center">
+                      <table align="center">
+                        <tr>
+                          <td height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
+                        </tr>
+                      </table>
+                      <table style="width:100%; max-width: 600px; margin: 0 auto;" align="center">
+                        <tr>
+                          <td colspan="2" align="left" width="100%" style="max-width: 600px; margin: 0 auto;">
+                            <h2 style="font-family: Arial, sans-serif; font-size:18px; line-height:26px; color:#F15D3F; font-weight:bold; padding:0; margin:0;" class="body-text" align="left">The Latest from Our Blog</h2>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td rowspan="5" align="left" valign="top" width="28%" style="padding-right: 10px;">
+                            <img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/monthly/blog-link.png" width="100%" height="100%" style="max-width: 116px; max-height: 116px; border: 1px solid #e2e2e2; margin: 0 auto;" alt="PCI DSS Knowledge is Power">
+                          </td>
+                          <td align="left" width="70%" style="font-weight: bold;">
+                            <h2 style="font-family: Arial, sans-serif; font-size:18px; line-height:26px; color:#222222; font-weight:bold; padding:0 0 10px; margin:0;" class="body-text" align="left">PCI DSS Knowledge is Power</h2>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td align="left" width="70%" style="font-size: 13px; color: #828282; line-height: 23px;">When it comes to payment data security, we're here to help you walk the walk and talk the talk. Get the lowdown on five terms everyone who accepts payments or donations should know, and (while you're at it) <a href="https://paymentspring.com/pci-compliance/"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">download our guide</span></a> to everything you need to know about PCI DSS compliance&#8212;free.</td>
+                        </tr>
+                        <tr>
+                          <td height="15" align="left" width="70%;" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" width="70%" style="font-size: 13px; line-height: 23px;"><a href="https://paymentspring.com/talking-compliance-talk-glossary-pci-dss-terms/"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Here's a glossary of PCI DSS Terms for quick reference. &raquo;</span></a></td>
+                        </tr>
+                        <tr>
+                          <td height="45" style="font-size: 45px; line-height: 45px;">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  height="100%" width="100%" valign="top" style="font-size: 0px; line-height: 0px; max-width: 600px;"><img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/nurture/22928_PS_NurtureEmail_asset_2.png" width="100%" height="auto" style="margin:0; padding:0; border:none; display:block; max-width: 600px; max-height: 32px;" border="0" alt="Border"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top" bgcolor="#f4f4f4" style="font-family: Arial, sans-serif; font-size:15px; line-height:24px; color:#828282; padding: 0 8%" class="body-text">
+                      <table style="width:100%;" align="center">
+                        <tr>
+                          <td height="30" style="font-size: 30px; line-height: 30px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" align="left" width="100%">
+                            <h2 style="font-family: Arial, sans-serif; font-size:18px; line-height:26px; color:#F15D3F; font-weight:bold; padding:0; margin:0;" class="body-text" align="left">Where PaymentSpring Shines For You</h2>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" height="25" style="font-size: 25px; line-height: 25px;">&nbsp;</td>
+                        </tr>
+                        <tr valign="top">
+                          <td style="vertical-align: top;" width="100%" align="left">
+                            <table cellspacing="0" cellpadding="0" border="0" width="230px" style="margin: 0 auto; table-layout:fixed;" align="left" class="twoColumns">
+                              <tr>
+                                <td>
+                                  <img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/btn-icon.png" width="84px" height="42px" style="max-width: 84px; max-height: 42px;" alt="Add a Customizable Checkout Button in Minutes" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="6" style="font-size: 6px; line-height: 6px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h2 style="font-family: Arial, sans-serif; font-size:17px; line-height:26px; color:#222222; font-weight:bold; padding:0 0 10px; margin:0;" class="body-text" align="left">Add a Customizable Checkout Button in Minutes</h2>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="6" style="font-size: 6px; line-height: 6px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <span style="font-family: Arial, sans-serif; font-size:13px; line-height:23px; color:#828282; font-weight:normal; padding:0; margin:0;" class="body-text" align="left">Add a "Donate" or "Checkout" button to your site in minutes. Using a single line of code, you can collect funds with very little effort.</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 13px;"><a href="https://paymentspring.com/products/#checkout-button"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Learn more here. &raquo;</span></a></td>
+                              </tr>
+                              <tr>
+                                <td height="30" style="font-size: 30px; line-height: 30px;">&nbsp;</td>
+                              </tr>
+                            </table>
+                            <table style="width:30px;" align="left">
+                              <tr>
+                                <td width="30px">&nbsp;</td>
+                              </tr>
+                            </table>
+                            <table cellspacing="0" cellpadding="0" border="0" width="230px" style="margin: 0 auto; table-layout:fixed;" align="left" class="twoColumns">
+                              <tr>
+                                <td>
+                                  <img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/invoice-icon.png" width="37px" height="46px" style="max-width: 37px; max-height: 46px;" alt="Ditch the Snail Mail" />
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="6" style="font-size: 6px; line-height: 6px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <h2 style="font-family: Arial, sans-serif; font-size:17px; line-height:26px; color:#222222; font-weight:bold; padding:0 0 10px; margin:0;" class="body-text" align="left">Ditch the Snail Mail</h2>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="6" style="font-size: 6px; line-height: 6px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <span style="font-family: Arial, sans-serif; font-size:13px; line-height:23px; color:#828282; font-weight:normal; padding:0; margin:0;" class="body-text" align="left">Cut your billing turnaround time down significantly by sending <strong>e-invoices</strong> directly from your PaymentSpring Dashboard. This secure invoicing method makes it easy for customers and donors to instantly pay online rather than add another piece of mail to the to-do pile.</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 13px;"><a href="https://paymentspring.com/sandbox/"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Sign up for a free test account to try it out. &raquo;</span></a></td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+
+                      </table>
+                      <table align="center">
+                        <tr>
+                          <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                        </tr>
+                      </table>
+                      <br />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="100%" width="100%" valign="top" style="font-size: 0px; line-height: 0px; max-width: 600px;"><img src="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/nurture/22928_PS_NurtureEmail_asset_3.png" width="100%" height="auto" style="margin:0; padding:0; border:none; display:block; max-width: 600px; max-height: 37px;" border="0" alt="Border"></td>
+                  </tr>
+                  <tr width="100%" style="font-size: 0px; line-height: 0px; max-width: 600px; table-layout:fixed;" align="center" bgcolor="#ffffff">
+                    <td width="100%" style="table-layout:fixed; padding: 0 8%;" align="center" bgcolor="#ffffff">
+                      <table height="100%" width="100%" valign="top" style="font-size: 0px; line-height: 0px; max-width: 600px; table-layout:fixed;" align="center" bgcolor="#ffffff">
+                        <tr>
+                          <td height="35" style="font-size: 35px; line-height: 35px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" align="left" width="100%">
+                            <h2 style="font-family: Arial, sans-serif; font-size:18px; line-height:26px; color:#F15D3F; font-weight:bold; padding:0; margin:0;" class="body-text" align="left">Take It Easy</h2>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" align="left" width="100%" style="font-family: Arial, sans-serif; font-size:13px; line-height:23px; color:#828282; padding:0; margin:0;" class="body-text">
+                            However and wherever using PaymentSpring, <span style="font-weight: bold; color: #000000;">personal support</span> is locked, loaded and ready to help you. And, our level 1 PCI compliance takes a lot of the security burdens off your plate&#8212;high five!
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" align="left" width="100%" style="font-family: Arial, sans-serif; font-size:13px; line-height:23px; color:#828282; padding:0; margin:0;" class="body-text">
+                            We are determined to make the payments world a better place, one customer at a time. Let us make you that next customer. <a href="https://paymentspring.com/contact/"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Send us a note</span></a> or give us a call at 844.348.5702.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" align="left" width="100%" style="font-family: Arial, sans-serif; font-size:13px; line-height:23px; color:#828282; padding:0; margin:0;" class="body-text">
+                            Talk soon,
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" align="left" width="100%" style="font-family: Arial, sans-serif; font-size:13px; font-weight: bold; line-height:23px; color:#000000; padding:0; margin:0;" class="body-text">
+                            Team PaymentSpring
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="45" style="font-size: 45px; line-height: 45px;">&nbsp;</td>
+                        </tr>
+
+
+
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="15" style="font-size: 15px; line-height: 15px;">&nbsp;</td>
+                  </tr>
+                </table>
+                <!--[if mso]>
+                 </td></tr></table>
+                <![endif]-->
+
+
+
+
+              </td>
+            </tr>
+            <!-- END INTRO -->
+
+            <!-- START FOOTER BAR -->
+            <tr>
+              <td align="center" height="100%" valign="top" width="100%" bgcolor="#e2e2e2" style="table-layout:fixed;">
+                <!--[if mso]>
+                 <table><tr><td width="600">
+                <![endif]-->
+                <table bgcolor="#242222" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; table-layout:fixed;">
+                  <tr>
+                    <td align="center" style="color: #B3B3B3; font-size:13px; font-style: italic; padding:25px 75px; line-height: 24px;">Just because you dig PaymentSpring doesn't mean you dig receiving emails. If you'd like to be taken off our email list, feel free to <a href="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/sendemail.php?unsubscribe=[UserEmail]"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">unsubscribe</span></a>.</td>
+                  </tr>
+                </table>
+                <!--[if mso]>
+                 </td></tr></table>
+                <![endif]-->
+                <!--[if (gte mso 9)|(IE)]>
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                  <tr>
+                    <td align="center" valign="top" width="600">
+                      <![endif]-->
+                      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; table-layout:fixed;">
+                        <tr>
+                          <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="center" valign="top" style="font-size:0; padding:0 20px; table-layout:fixed;">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                              <tr>
+                                <td align="center" valign="top" width="600">
+                                  <![endif]-->
+                                  <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; table-layout:fixed;">
+                                    <tr>
+                                      <td align="center" valign="top" style="table-layout:fixed;">
+                                        <table cellpadding="0" cellspacing="0" border="0" class="right">
+                                          <tr>
+                                            <td width="60" align="center">
+                                              <a href="https://www.facebook.com/paymentspring/" target="_blank"><img src="http://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/facebook_icon.png" width="32" height="32" style="margin:0; padding:0; border:none; display:block;" border="0" alt="Facebook"></a>
+                                            </td>
+                                            <td width="60" align="center">
+                                              <a href="https://twitter.com/paymentspring?lang=en" target="_blank"><img src="http://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/twitter_icon.png" width="32" height="32" style="margin:0; padding:0; border:none; display:block;" border="0" alt="Twitter"></a>
+                                            </td>
+                                            <td width="60" align="center">
+                                              <a href="https://www.linkedin.com/company/paymentspring" target="_blank"><img src="http://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/linkedin_icon.png" width="32" height="32" style="margin:0; padding:0; border:none; display:block;" border="0" alt="LinkedIn"></a>
+                                            </td>
+                                            <td width="60" align="center">
+                                              <a href="https://paymentspring.com/blog" target="_blank"><img src="http://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/blog_icon.png" width="32" height="32" style="margin:0; padding:0; border:none; display:block;" border="0" alt="Blog"></a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <table cellpadding="0" cellspacing="0" border="0">
+                                          <tr>
+                                            <td height="35" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                            <td align="center" colspan="4" valign="top" style="font-family: Arial, sans-serif; line-height:16px; color:#828282; font-size: 12px; table-layout:fixed;" class="body-text">
+                                              <!--This message was sent to [UserEmail].<br />
+                                              <a href="https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/sendemail.php?unsubscribe=[UserEmail]"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Unsubscribe</span></a>.-->
+                                              &copy; PaymentSpring 2017
+                                              <br /><br />
+                                              12165 West Center Road, Suite 72
+                                              <br />
+                                              Omaha, Nebraska 68144
+                                              <br /><br />
+                                              <a href="https://paymentspring.com/privacy-security/"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Privacy Policy</span></a> | <a href="https://paymentspring.com/terms-of-use/"><span style="color: #49c3b1; font-weight: bold; text-decoration: none;">Terms & Conditions</span></a>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <!--[if (gte mso 9)|(IE)]>
+                                </td>
+                              </tr>
+                            </table>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
+                        </tr>
+                      </table>
+                      <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                  </tr>
+                </table>
+                <![endif]-->
+              </td>
+            </tr>
+            <!-- END FOOTER BAR -->
+          </table>
+        </center>
+
+        </td>
+        </tr>
+        </table>
+        <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;">
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        </div>
+  </body>
+</html>

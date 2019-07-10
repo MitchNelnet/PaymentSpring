@@ -1,0 +1,111 @@
+/***************** Generic Partner Template *****************/
+.generic-partner-page .logo {
+  width: 200px;
+}
+
+.generic-partner-page .interior_header .button-custom {
+  width: auto !important;
+}
+/************************** END *****************************/
+
+/************* Landing Page Custom Styling  *********************/
+
+.lp-header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.lp-header img {
+  padding-top: 8px;
+}
+
+.agape-lp .interior_header .button-custom {
+  width: auto !important;
+}
+
+.agape-lp .post-content h3 {
+  color: #f28c83;
+}
+
+.bunk1-lp.agape-lp .post-content h3 {
+  color: #f37321;
+}
+
+.bunk1-lp .slanted-header:before {
+  background: #1c53a3;
+}
+
+.bunk1-lp .interior_header h3 {
+  color: #ffffff !important;
+  text-shadow: none;
+}
+
+.bunk1-lp .gform_wrapper input[type="submit"] {
+  background: #f37321;
+}
+
+.bunk1-lp .gform_wrapper input.gform_button:hover {
+  background: #1c53a3;
+}
+
+.bunk1-lp .gform_wrapper .gfield_checkbox li label {
+  font-size: 1em;
+  top: -8px;
+  position: relative;
+}
+
+.agape-lp h2 {
+  line-height: 1em !important;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 550px) {
+
+
+  .bunk1-lp .slanted-header:before {
+    height: 700px;
+  }
+
+  .bunk1-lp .interior_header {
+    padding-top: 160px !important;
+}
+
+.agape-lp .interior_header {
+    padding-top: 160px !important;
+}
+
+}
+
+/*---------------------------
+2.4 - Forms
+--------------------------- */
+
+.agape-lp .gform_wrapper li.field_description_above .gfield_description {
+  width: auto;
+  display: inline-block;
+  font-size: 12px;
+  padding-top: 0;
+}
+
+.agape-lp .gform_button.button {
+  max-width: 300px !important;
+}
+
+.agape-lp .gform_wrapper .top_label .gfield_label {
+  margin-right: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+.agape-lp .gform_footer.top_label {
+  text-align: center;
+}
+
+#wrapper .gform_wrapper .gravity-select-parent select{
+  height: 38px;
+}
+
+.gform_wrapper .select-arrow {
+  font-family: icomoon !important;
+}

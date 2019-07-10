@@ -1,0 +1,134 @@
+<?php
+
+//if (!defined('ABSPATH')) die("Aren't you supposed to come here via WP-Admin?");
+$parse_uri = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
+require_once( $parse_uri[0] . 'wp-load.php' );
+
+/*error_reporting(-1);
+ini_set('display_errors', 'On');
+set_error_handler("var_dump");*/
+
+$unsubscribe = $_GET['unsubscribe'];
+
+if (strlen($unsubscribe) < 1) {
+	$user_name = esc_html( $_POST["name"] );
+	$user_email = esc_html( $_POST["email_address"] );
+
+	/* Admin Email */
+	$to      = 'sales@paymentspring.com';
+	$subject = 'Hurray! We have a new sandbox user.';
+	$message = 'Greetings, sales crew!
+
+	This fine soul or organization just signed up as a new sandbox user. Check it out:
+
+	' . $user_name . "\r\n" . $user_email . '
+
+	Please utilize their information accordingly and keep them in mind when you’re conducting follow-ups.
+
+	Thanks!
+	Team PaymentSpring';
+	$headers = 'From: PaymentSpring Sandbox <sales@paymentspring.com>' . "\r\n";
+	//$headers .= 'CC: matia.ward@firespring.com' . "\r\n";
+	$headers .= 'X-Mailer: PHP/' . phpversion();
+
+
+	if (wp_mail($to,$subject,$message,$headers)) {
+		//echo "send email";
+	} else {
+		//echo "DON'T send email";
+	}
+	/* End Admin Email */
+
+
+	/* Customer Email */
+	$to      = $user_email;
+	$subject = 'Welcome to PaymentSpring';
+	$message = file_get_contents('email-template/customer_template.html');
+	$message = str_replace("[UserEmail]",$user_email,$message);
+
+	$headers = "From: Team PaymentSpring <sales@paymentspring.com>\r\n";
+	//$headers .= "CC: matia.ward@firespring.com\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$headers .= "X-Mailer: PHP/" . phpversion();
+
+
+	if (wp_mail($to,$subject,$message,$headers)) {
+		//echo "send email";
+	} else {
+		//echo "DON'T send email";
+	}
+	/* End Customer Email */
+
+	/* Submit data to database */
+	global $wpdb;
+
+	$table_name = $wpdb->prefix . 'track_signup_form';
+
+	$wpdb->insert(
+		$table_name,
+		array(
+			'time' => current_time( 'mysql' ),
+			'name' => $user_name,
+			'email' => $user_email,
+		)
+	);
+	/* End DB submission */
+} else {
+	/* Unsubscribe Email */
+	$to      = 'sales@paymentspring.com';
+	$subject = 'Unsubscribe ASAP';
+	$message = 'This person or organization wishes to be removed from our email list. Please grant the request as swiftly as possible.
+
+	' . $unsubscribe . '
+
+	Thanks!
+	Team PaymentSpring';
+	$headers = 'From: PaymentSpring Sandbox <sales@paymentspring.com>' . "\r\n";
+	//$headers .= 'CC: matia.ward@firespring.com' . "\r\n";
+	$headers .= 'X-Mailer: PHP/' . phpversion();
+
+
+	if (wp_mail($to,$subject,$message,$headers)) {
+		//echo $unsubscribe;
+	} else {
+		//echo "DON'T send email";
+	}
+	/* End Admin Email */
+
+	$output = "<head>
+	<style>
+		@font-face {
+		  font-family: ProximaNovaA-Regular;
+		  src: url('../fonts/ProximaNovaA-Regular.eot'); /* IE9 Compat Modes */
+		  src: url('../fonts/ProximaNovaA-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		    url('../fonts/ProximaNovaA-Regular.woff') format('woff'), /* Modern Browsers */
+		    url('../fonts/ProximaNovaA-Regular.woff2') format('woff2'), /* Modern Browsers */
+		    url('../fonts/ProximaNovaA-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+		    url('../fonts/ProximaNovaA-Regular.svg') format('svg'); /* Legacy iOS */  font-weight: normal;
+		  font-style: normal;
+		}
+
+		@font-face {
+		  font-family: ProximaNovaA-Semibold;
+		  src: url('../fonts/ProximaNovaA-Semibold.eot'); /* IE9 Compat Modes */
+		  src: url('../fonts/ProximaNovaA-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		    url('../fonts/ProximaNovaA-Semibold.woff') format('woff'), /* Modern Browsers */
+		    url('../fonts/ProximaNovaA-Semibold.woff2') format('woff2'), /* Modern Browsers */
+		    url('../fonts/ProximaNovaA-Semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+		    url('../fonts/ProximaNovaA-Semibold.svg') format('svg'); /* Legacy iOS */  font-weight: normal;
+		  font-style: normal;
+		}
+	</style>
+	</head>
+	<body bgcolor='#f1f1f1' align='center' style='text-align:center; font-family: ProximaNovaA-Regular; color: #636363;'>
+	<img src='https://paymentspring.com/wp-content/themes/Avada-Child-Theme/includes/email-template/images/PSlogo_dark3.png' width='100%' style='max-width:248px;' />
+	<br /><br />
+	<div style='font-size: 20px; background-color: #ffffff; padding: 50px; max-width: 660px; width: auto; margin-left: auto; margin-right: auto; margin-top: 50px; line-height: 30px;' >
+	<strong style='font-family:ProximaNovaA-Semibold;'>" . $unsubscribe . " was unsubscribed.</strong>
+	<br /><br />
+	We're not great with goodbyes, so we'll just say \"see ya later!\" and hope to find you somewhere within our social network&#151;<a href='https://www.facebook.com/paymentspring/' style='color: #49c3b1; font-weight: bold; text-decoration: none;'>Facebook</a>, <a href='https://twitter.com/paymentspring?lang=en' style='color: #49c3b1; font-weight: bold; text-decoration: none;'>Twitter</a> and/or <a href='https://www.linkedin.com/company/paymentspring' style='color: #49c3b1; font-weight: bold; text-decoration: none;'>LinkedIn</a>.</h1>
+	</body>";
+	echo $output;
+}
+?>
